@@ -10,7 +10,7 @@ from .style import Style
 from .text import Span, Text
 
 RE_TAGS = re.compile(
-    r"""((\\*)\[([a-z#/@][^[]*?)])""",
+    r"""((\\*)\[([a-z#/@][^=\[\]]*(?:=(?:[^\[\]]|\[[^\[\]]*\])*)?)])""",
     re.VERBOSE,
 )
 
