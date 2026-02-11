@@ -638,6 +638,8 @@ class TextColumn(ProgressColumn):
             text = Text.from_markup(_text, style=self.style, justify=self.justify)
         else:
             text = Text(_text, style=self.style, justify=self.justify)
+        if self.style and self.style != "none":
+            text.stylize(self.style)
         if self.highlighter:
             self.highlighter.highlight(text)
         return text
@@ -764,6 +766,8 @@ class TaskProgressColumn(TextColumn):
             text = Text.from_markup(_text, style=self.style, justify=self.justify)
         else:
             text = Text(_text, style=self.style, justify=self.justify)
+        if self.style and self.style != "none":
+            text.stylize(self.style)
         if self.highlighter:
             self.highlighter.highlight(text)
         return text
