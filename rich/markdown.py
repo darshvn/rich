@@ -652,6 +652,8 @@ class Markdown(JupyterMixin):
                     if token.content:
                         context.on_text(token.content, node_type)
                     context.leave_style()
+            elif node_type == "html_inline":
+                context.on_text(token.content, node_type)
             else:
                 # Map the markdown tag -> MarkdownElement renderable
                 element_class = self.elements.get(token.type) or UnknownElement
